@@ -50,11 +50,11 @@ if is_det == 1:
     pred = daily_avg(pred)
     print('Compute MAE')
     err = onp.mean(onp.abs(pred-test),axis=1) # dim_y x lon x lat
-    onp.save('SF_param/SF_param_det/MAE_det_long_lat.npy',err)
+    onp.save('SF_results/MAE_det_long_lat.npy',err)
     
     print('Compute R^2')
     r2 = 1 - onp.sum( (test-pred)**2, axis=1 ) / onp.sum( (test-onp.mean(test,axis=1)[:,None,:,:])**2, axis=1 )
-    onp.save('SF_param/SF_param_det/r2_det_long_lat.npy',r2)
+    onp.save('SF_results/r2_det_long_lat.npy',r2)
     
 if is_LF == 1:
     pred = (onp.load('MF_param/mean_RPN_LF_reshaped.npy') - mu_error_out) / sigma_error_out
@@ -62,11 +62,11 @@ if is_LF == 1:
     pred = daily_avg(pred)
     print('Compute MAE')
     err = onp.mean(onp.abs(pred-test),axis=1) # dim_y x lon x lat
-    onp.save('MF_param/MAE_LF_long_lat.npy',err)
+    onp.save('MF_results/MAE_LF_long_lat.npy',err)
     
     print('Compute R^2')
     r2 = 1 - onp.sum( (test-pred)**2, axis=1 ) / onp.sum( (test-onp.mean(test,axis=1)[:,None,:,:])**2, axis=1 )
-    onp.save('MF_param/r2_LF_long_lat',r2)
+    onp.save('MF_results/r2_LF_long_lat',r2)
     
 if is_SF == 1:
     pred = (onp.load('SF_param/mean_RPN_SF_reshaped.npy') - mu_error_out) / sigma_error_out
@@ -74,11 +74,11 @@ if is_SF == 1:
     pred = daily_avg(pred)
     print('Compute MAE')
     err = onp.mean(onp.abs(pred-test),axis=1) # dim_y x lon x lat
-    onp.save('SF_param/MAE_SF_long_lat.npy', err)
+    onp.save('SF_results/MAE_SF_long_lat.npy', err)
 
     print('Compute R^2')
     r2 = 1 - onp.sum( (test-pred)**2, axis=1)/onp.sum( (test-onp.mean(test,axis=1)[:,None,:,:])**2, axis=1)
-    onp.save('SF_param/r2_SF_long_lat.npy', r2)
+    onp.save('SF_results/r2_SF_long_lat.npy', r2)
     
 if is_rpn_MF == 1:
     pred = (onp.load('MF_param/mean_RPN_MF_reshaped.npy') - mu_error_out) / sigma_error_out
@@ -86,11 +86,11 @@ if is_rpn_MF == 1:
     pred = daily_avg(pred)
     print('Compute MAE')
     err = onp.mean( onp.abs(pred - test) ,axis=1) 
-    onp.save('MF_param/MAE_MF_long_lat.npy', err)
+    onp.save('MF_results/MAE_MF_long_lat.npy', err)
     
     print('Compute R^2')
     r2 = 1 - onp.sum( (test-pred)**2, axis=1)/onp.sum( (test-onp.mean(test,axis=1)[:,None,:,:])**2, axis=1)
-    onp.save('MF_param/r2_MF_long_lat.npy', r2)
+    onp.save('MF_results/r2_MF_long_lat.npy', r2)
     
     
     

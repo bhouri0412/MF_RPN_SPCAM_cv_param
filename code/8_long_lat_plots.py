@@ -8,7 +8,6 @@ Created on Sun Apr  9 00:59:59 2023
 from matplotlib import pyplot as plt
 import numpy as np
 
-
 plt.rcParams.update(plt.rcParamsDefault)
 plt.rc('font', family='serif')
 plt.rcParams.update({'font.size': 16,
